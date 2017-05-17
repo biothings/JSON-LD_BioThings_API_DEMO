@@ -11,7 +11,7 @@ AVAILABLE_IDS= {"ensembl_gene_id": {
  	"example": "CDK7"
  },
  "hgvs_id": {
- 	"uri": "http://identifiers.org/hgvs*/",
+ 	"uri": "http://identifiers.org/hgvs/",
  	"example": "chr6:123456G>A"
  },
  "dbsnp_id": {

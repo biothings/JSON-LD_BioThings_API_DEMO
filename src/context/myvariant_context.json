@@ -5,7 +5,6 @@
         "cadd.gene.genename": "http://identifiers.org/hgnc.symbol/",
         "cadd.gene.ccds_id": "http://identifiers.org/ccds/",
         "clinvar.uniprot": "http://identifiers.org/uniprot/",
-        "clinvar.omim": "http://identifiers.org/omim/",
         "clinvar.rsid": "http://identifiers.org/dbsnp/",
         "clinvar.rcv.accession": "http://identifers.org/clinvar/",
         "clinvar.rcv.conditions.identifiers.omim": "http://identifiers.org/omim/",
