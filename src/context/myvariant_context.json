@@ -1,0 +1,48 @@
+{
+    "@context": {
+        "cadd.gene.gene_id": "http://identifiers.org/ensembl.gene/",
+        "cadd.gene.feature_id": "http://identifiers.org/ensembl.transcript/",
+        "cadd.gene.genename": "http://identifiers.org/hgnc.symbol/",
+        "cadd.gene.ccds_id": "http://identifiers.org/ccds/",
+        "clinvar.uniprot": "http://identifiers.org/uniprot/",
+        "clinvar.omim": "http://identifiers.org/omim/",
+        "clinvar.rsid": "http://identifiers.org/dbsnp/",
+        "clinvar.rcv.accession": "http://identifers.org/clinvar/",
+        "clinvar.rcv.conditions.identifiers.omim": "http://identifiers.org/omim/",
+        "clinvar.rcv.conditions.identifiers.efo": "http://identifiers.org/efo/",
+        "clinvar.rcv.conditions.identifiers.orphanet": "http://identifiers.org/orphanet/",
+        "clinvar.gene.symbol": "http://identifiers.org/hgnc.symbol/",
+        "clinvar.gene.id": "http://identifiers.org/ncbigene/",
+        "dbnsfp.rsid": "http://identifiers.org/dbsnp/",
+        "dbnsfp.genename": "http://identifiers.org/hgnc.symbol/",
+        "dbnsfp.clinvar.rs": "http://identifiers.org/dbsnp/",
+        "dbnsfp.ensembl.geneid": "http://identifiers.org/ensembl.gene/",
+        "dbnsfp.ensembl.proteinid": "http://identifiers.org/ensembl.protein/",
+        "dbnsfp.ensembl.transcriptid": "http://identifiers.org/ensembl.transcript",
+        "dbnsfp.uniprot.acc": "http://identifiers.org/uniprot/",
+        "dbsnp.rsid": "http://identifiers.org/dbsnp/",
+        "dbsnp.gene.symbol": "http://identifiers.org/hgnc.symbol/",
+        "dbsnp.gene.geneid": "http://identifiers.org/ncbigene/",
+        "docm.ensembl_gene_id": "http://identifiers.org/ensembl.gene/",
+        "docm.default_gene_name": "http://identifiers.org/hgnc.symbol/",
+        "docm.genename": "http://identifiers.org/hgnc.symbol/",
+        "docm.pubmed_id": "http://identifiers.org/pubmed/",
+        "emv.gene.symbol": "http://identifiers.org/hgnc.symbol/",
+        "emv.gene.id": "http://identifiers.org/ncbigene/",
+        "evs.rsid": "http://identifiers.org/dbsnp/",
+        "evs.gene.symbol": "http://identifiers.org/hgnc.symbol/",
+        "evs.gene.accession": "http://identifiers.org/refseq/",
+        "grasp.rsid": "http://identifiers.org/dbsnp/",
+        "grasp.publication.snpid": "http://identifiers.org/dbsnp/",
+        "gwassnps.rsid": "http://identifiers.org/dbsnp/",
+        "gwassnps.genename": "http://identifiers.org/hgnc.symbol/",
+        "gwassnps.pubmed": "http://identifiers.org/pubmed/",
+        "mutdb.rsid": "http://identifiers.org/dbsnp/",
+        "snpeff.lof.genename": "http://identifiers.org/hgnc.symbol/",
+        "snpeff.ann.genename": "http://identifiers.org/hgnc.symbol/",
+        "snpeff.nmd.genename": "http://identifiers.org/hgnc.symbol/"
+    }
+}
+
+
+

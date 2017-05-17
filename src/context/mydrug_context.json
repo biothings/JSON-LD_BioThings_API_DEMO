@@ -1,0 +1,23 @@
+{
+    "@context": {
+        "drugbank.targets.uniprot": "http://identifiers.org/uniprot/",
+        "drugbank.accession_number": "http://identifiers.org/drugbank/",
+        "drugbank.carriers.uniprot": "http://identifiers.org/uniprot_carrier/",
+        "drugbank.transporters.uniprot": "http://identifiers.org/uniprot_transporter/",
+        "drugbank.enzymes.uniprot": "http://identifiers.org/uniprot_enzymes/",
+        "drugbank.drug_interaction.drugbank-id": "http://identifiers.org/drugbank/",
+        "drugbank.pathway.drugs.drugbank-id": "http://identifiers.org/drugbank/",
+        "drugbank.pathways.enzymes.uniprot-id": "http://identifiers.org/uniprot_enzymes/",
+        "drugbank.pharmacology.snp_effects.effect.gene-symbol": "http://identifiers.org/hgnc.symbol/",
+        "drugbank.pharmacology.snp_effects.effect.rs-id": "http://identifiers.org/dbsnp/",
+        "drugbank.pharmacology.snp_effects.effect.pubmed-id": "http://identifiers.org/pubmed/",
+        "drugbank.pharmacology.snp_effects.effect.uniprot_id": "http://identifiers.org/uniprot_snp/",
+        "drugbank.pharmacology.snp_adverse_drug_reactions.reactions.pubmed-id": "http://identifiers.org/pubmed/",
+        "drugbank.pharmacology.snp_adverse_drug_reactions.reactions.gene-symbol": "http://identifiers.org/hgnc.symbol/",
+        "drugbank.pharmacology.snp_adverse_drug_reactions.reactions.rs-id": "http://identifiers.org/dbsnp/",
+        "drugbank.pharmacology.snp_adverse_drug_reactions.reactions.uniprot_id": "http://identifiers.org/uniprot_snp/",
+        "pharmgkb.cross_references.clinicaltrials_gov": "http://identifiers.org/clinicaltrials/",
+        "pharmgkb.cross_references.drugbank": "http://identifiers.org/drugbank/",
+        "pharmgkb.cross_references.uniprotkb": "http://identifiers.org/uniprot_cross/"
+    }
+}
