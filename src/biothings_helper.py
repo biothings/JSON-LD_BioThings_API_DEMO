@@ -66,7 +66,7 @@ def find_value_from_output_type(api, input, output_type):
     given an api, input value
     return the value related to the uri
     '''
-    url = AVAILABLE_API_SOURCES[api]['annotate_syntax'].replace('*', input)
+    url = AVAILABLE_API_SOURCES[api]['annotate_syntax'].replace('{{input}}', input)
     json_doc = fetch_doc_from_api(url)
     context = load_context(api)
     json_doc.update(context)
@@ -89,7 +89,7 @@ class Biothingsexplorer():
 
     def get_json_doc(self, api, id):
         # construct url from id
-        url = AVAILABLE_API_SOURCES[api]['annotate_syntax'].replace('*', id)
+        url = AVAILABLE_API_SOURCES[api]['annotate_syntax'].replace('{{input}}', id)
         json_doc = fetch_doc_from_api(url)
         context = load_context(api)
         json_doc.update(context)

@@ -46,8 +46,8 @@ AVAILABLE_IDS= {"ensembl_gene_id": {
 AVAILABLE_API_SOURCES={"mygene.info": {
  	"annotate_ids": ["entrez_gene_id", "ensembl_gene_id"],
  	"query_ids": ["uniprot_id", "ensembl_gene_id", "hgnc_gene_symbol", "wikipathway_id", "pubmed_id"],
- 	"annotate_syntax": "http://mygene.info/v3/gene/*?dotfield=true",
- 	"query_syntax": "http://mygene.info/v3/query?q=*",
+ 	"annotate_syntax": "http://mygene.info/v3/gene/{{input}}?dotfield=true",
+ 	"query_syntax": "http://mygene.info/v3/query?q={{input}}",
   "description": "gene annotation service",
  	"jsonld": {
  		"context_file_path": "context/mygene_context.json"
@@ -56,8 +56,8 @@ AVAILABLE_API_SOURCES={"mygene.info": {
   "myvariant.info": {
   	"annotate_ids": ["hgvs_id"],
   	"query_ids": ["entrez_gene_id", "hgnc_gene_symbol", "ensembl_gene_id", "dbsnp_id", "pubmed_id", "uniprot_id"],
-  	"annotate_syntax": "http://myvariant.info/v1/variant/*?dotfield=true",
-  	"query_syntax": "http://myvariant.info/v1/query?q=*",
+  	"annotate_syntax": "http://myvariant.info/v1/variant/{{input}}?dotfield=true",
+  	"query_syntax": "http://myvariant.info/v1/query?q={{input}}",
   	"jsonld": {
   		"context_file_path": "context/myvariant_context.json"
   	}
@@ -65,8 +65,8 @@ AVAILABLE_API_SOURCES={"mygene.info": {
   "mydrug.info": {
   	"annotate_ids": ["drugbank_id"],
   	"query_ids": ["dbsnp_id", "pubchem_id", "drugbank_id", "pubmed_id", "hgnc_gene_symbol", "uniprot_id", "clinicaltrial_id"],
-  	"annotate_syntax": "http://c.biothings.io/v1/drug/*?dotfield=true",
-  	"query_syntax": "http://c.biothings.io/v1/query?q=*",
+  	"annotate_syntax": "http://c.biothings.io/v1/drug/{{input}}?dotfield=true",
+  	"query_syntax": "http://c.biothings.io/v1/query?q={{input}}",
   	"jsonld": {
   		"context_file_path": "context/mydrug_context.json"
   	}
