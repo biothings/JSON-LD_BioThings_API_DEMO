@@ -25,7 +25,7 @@ def load_context(api):
     e.g. mygene.info context file
     '''
     if 'jsonld' in AVAILABLE_API_SOURCES[api]:
-        return json.loads(open(AVAILABLE_API_SOURCES[api]["jsonld"]["context_file_path"]).read())
+        return requests.get(AVAILABLE_API_SOURCES[api]["jsonld"]["context_file_path"]).json()
 
 def nquads_transform(doc):
     '''

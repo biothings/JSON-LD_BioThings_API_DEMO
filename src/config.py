@@ -50,7 +50,7 @@ AVAILABLE_API_SOURCES={"mygene.info": {
  	"query_syntax": "http://mygene.info/v3/query?q={{input}}",
   "description": "gene annotation service",
  	"jsonld": {
- 		"context_file_path": "context/mygene_context.json"
+ 		"context_file_path": "https://raw.githubusercontent.com/biothings/mygene.info/master/src/www/context/context.json"
  	}
  },
   "myvariant.info": {
@@ -59,7 +59,7 @@ AVAILABLE_API_SOURCES={"mygene.info": {
   	"annotate_syntax": "http://myvariant.info/v1/variant/{{input}}?dotfield=true",
   	"query_syntax": "http://myvariant.info/v1/query?q={{input}}",
   	"jsonld": {
-  		"context_file_path": "context/myvariant_context.json"
+  		"context_file_path": "https://raw.githubusercontent.com/biothings/myvariant.info/master/src/www/context/context.json"
   	}
   },
   "mydrug.info": {
@@ -68,7 +68,7 @@ AVAILABLE_API_SOURCES={"mygene.info": {
   	"annotate_syntax": "http://c.biothings.io/v1/drug/{{input}}?dotfield=true",
   	"query_syntax": "http://c.biothings.io/v1/query?q={{input}}",
   	"jsonld": {
-  		"context_file_path": "context/mydrug_context.json"
+  		"context_file_path": "https://raw.githubusercontent.com/biothings/biothings.drugs/master/src/www/context/context.json"
   	}
   }
 }
