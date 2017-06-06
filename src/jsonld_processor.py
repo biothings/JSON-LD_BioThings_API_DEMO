@@ -1,6 +1,7 @@
 import json
 import requests
 from pyld import jsonld
+from collections import OrderedDict
 
 from config import AVAILABLE_API_SOURCES
 
@@ -25,7 +26,7 @@ def load_context(api):
     e.g. mygene.info context file
     '''
     if 'jsonld' in AVAILABLE_API_SOURCES[api]:
-        return requests.get(AVAILABLE_API_SOURCES[api]["jsonld"]["context_file_path"]).json()
+        return json.load(open(AVAILABLE_API_SOURCES[api]["jsonld"]["context_file_path"]))
 
 def nquads_transform(doc):
     '''
@@ -77,3 +78,39 @@ def get_uri_value_pairs(nquads):
     for _uri in uri_list:
         uri_value_pairs.update({_uri: fetch_value(nquads, _uri)})
     return uri_value_pairs
+
+def is_seq(li):
+    """return True if input is either a list or a tuple.
+    """
+    return isinstance(li, (list, tuple))
+
+def flatten_doc(doc, outfield_sep='.', sort=True):
+    ''' This function will flatten an elasticsearch document (really any json object).
+        outfield_sep is the separator between the fields in the return object.
+        sort specifies whether the output object should be sorted alphabetically before returning
+            (otherwise output will remain in traveral order) '''
+
+    def _recursion_helper(_doc, _ret, out):
+        if isinstance(_doc, dict):
+            for key in _doc:
+                new_key = key if not out else outfield_sep.join([out, key])
+                _recursion_helper(_doc[key], _ret, new_key)
+        elif is_seq(_doc):
+            for _obj in _doc:
+                _recursion_helper(_obj, _ret, out)
+        else:
+            # this is a leaf
+            _ret.setdefault(out, []).append(_doc)
+
+    ret = {}
+    new_dict = {}
+    _recursion_helper(doc, ret, '')
+    if sort:
+        return OrderedDict(sorted([(k, v[0]) if len(v) == 1 else (k, v) for (k, v) in ret.items()], key=lambda x: x[0]))
+    for (k, v) in ret.items():
+        if len(v) == 1:
+            new_dict[k] = v[0]
+        else:
+            new_dict[k] = v
+    return new_dict
+

@@ -1,8 +1,44 @@
-from biothings_helper import find_annotate_api_ids, find_query_api_ids, find_value_from_output_type, query_ids_from_output_type
+from biothings_helper import construct_url, find_api, find_value_from_output_type, find_id_from_uri
+from config import AVAILABLE_ENDPOINTS
+
+def dict2list(_dict):
+	results = []
+	for k,v in _dict.items():
+		for _item in v:
+			for _k, _v in _item.items():
+				if _k != 'source':
+					if type(_v) == list:
+						for _id in _v:
+							if _id:
+								results.append(_id)
+					else:
+						if _v:
+							results.append(_v)
+	results = list(set(results))
+	results.sort()
+	return results
 
 
 class IdListHandler():
 
+	def list_handler(self, input_id_list, _input_type, _output_type, uri=False):
+		if uri:
+			_input_type = find_id_from_uri(_input_type)
+			_output_type = find_id_from_uri(_output_type)
+		output = {}
+		for _input_id in input_id_list:
+			available_endpoint_list = find_api(_input_type, _output_type)
+			for _endpoint in available_endpoint_list:
+				_api = AVAILABLE_ENDPOINTS[_endpoint]["api"]
+				_url = construct_url(_endpoint, _input_id, _input_type)
+				_value = find_value_from_output_type(_url, _endpoint, _output_type)
+				if _input_id not in output:
+					output[_input_id] = [{'source': _api, _output_type: _value}]
+				else:
+					output[_input_id].append({'source': _api, _output_type: _value})
+		return output
+
+'''
 	def list_handler(self, input_id_list, input_type, output_type):
 		output_id_list = []
 		for _input_id in input_id_list:
@@ -14,7 +50,7 @@ class IdListHandler():
 			else:
 				output_id_list.append(output_ids)
 		return output_id_list
-
+'''
 
 class IdHandler():
 	'''
