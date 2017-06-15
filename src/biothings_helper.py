@@ -45,14 +45,14 @@ def find_value_from_output_type(_url, endpoint_id, _output_type):
     json_doc = fetch_doc_from_api(_url)
     if 'hits' in json_doc and json_doc['hits']:
         json_doc = flatten_doc(json_doc)
-        context = json.load(open(AVAILABLE_ENDPOINTS[endpoint_id]["jsonld"]))
+        context = json.load(open(AVAILABLE_API_ENDPOINTS[endpoint_id]["jsonld"]))
         json_doc.update(context)
         nquads_doc = nquads_transform(json_doc)
         uri = AVAILABLE_IDS[_output_type]["uri"]
         return fetch_value_by_uri(nquads_doc, uri)
     elif 'hits' not in json_doc:
         json_doc = flatten_doc(json_doc)
-        context = json.load(open(AVAILABLE_ENDPOINTS[endpoint_id]["jsonld"]))
+        context = json.load(open(AVAILABLE_API_ENDPOINTS[endpoint_id]["jsonld"]))
         json_doc.update(context)
         nquads_doc = nquads_transform(json_doc)
         uri = AVAILABLE_IDS[_output_type]["uri"]
@@ -67,13 +67,13 @@ def query_ids_from_output_type(api, _type, _value):
 
 def find_api(_input, _output):
     endpoint_list = []
-    for i in range(0, len(AVAILABLE_ENDPOINTS)):
-        if _input in AVAILABLE_ENDPOINTS[i]["input"] and _output in AVAILABLE_ENDPOINTS[i]["output"]:
+    for i in range(0, len(AVAILABLE_API_ENDPOINTS)):
+        if _input in AVAILABLE_API_ENDPOINTS[i]["input"] and _output in AVAILABLE_API_ENDPOINTS[i]["output"]:
             endpoint_list.append(i)
     return endpoint_list
 
 def construct_url(endpoint_id, _input, _input_type):
-    endpoint = AVAILABLE_ENDPOINTS[endpoint_id]
+    endpoint = AVAILABLE_API_ENDPOINTS[endpoint_id]
     if endpoint["type"] == "get":
         url = endpoint["url_syntax"].replace("{{input}}", _input)
         return url

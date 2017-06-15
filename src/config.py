@@ -2,6 +2,10 @@ AVAILABLE_IDS= {"ensembl_gene_id": {
 	"uri": "http://identifiers.org/ensembl.gene/",
 	"example": "ENSG00000139618"
 },
+ "omim_id": {
+  "uri": "http://identifiers.org/omim/",
+  "example": 109800
+ },
  "entrez_gene_id": {
  	"uri": "http://identifiers.org/ncbigene/",
  	"example": 1017
@@ -60,7 +64,7 @@ AVAILABLE_API_SOURCES={"mygene.info": {
  },
   "myvariant.info": {
   	"annotate_ids": ["hgvs_id"],
-  	"query_ids": ["entrez_gene_id", "hgnc_gene_symbol", "ensembl_gene_id", "dbsnp_id", "pubmed_id", "uniprot_id"],
+  	"query_ids": ["entrez_gene_id", "hgnc_gene_symbol", "ensembl_gene_id", "dbsnp_id", "pubmed_id", "uniprot_id", "omim_id"],
   	"annotate_syntax": "http://myvariant.info/v1/variant/{{input}}?dotfield=true",
   	"query_syntax": "http://myvariant.info/v1/query?q={{input}}&fetch_all=TRUE&fields=_id",
   	"jsonld": {
@@ -73,26 +77,26 @@ AVAILABLE_API_SOURCES={"mygene.info": {
   	"annotate_syntax": "http://c.biothings.io/v1/drug/{{input}}?dotfield=true",
   	"query_syntax": "http://c.biothings.io/v1/query?q={{input}}&fetch_all=TRUE&fields=_id",
   	"jsonld": {
-  		"context_file_path": "context/mydrug_context.json"
+  		"context_file_path": "context/mychem_context.json"
   	}
   }
 }
 
-AVAILABLE_ENDPOINTS = [
+AVAILABLE_API_ENDPOINTS = [
   {
-    "url_syntax": "http://c.biothings.io/v1/query?q={{input}}&fetch_all=TRUE&fields=_id",
-    "input": ["dbsnp_id", "pubchem_id", "drugbank_id", "pubmed_id", "hgnc_gene_symbol", "uniprot_id", "clinicaltrial_id"],
-    "output": ["inchikey"],
-    "jsonld": "context/mydrug_query_context.json",
-    "api": "mychem.info",
+    "url_syntax": "http://mygene.info/v3/query?q={{input}}&fetch_all=TRUE&fields=_id",
+    "input": ["uniprot_id", "ensembl_gene_id", "hgnc_gene_symbol", "wikipathway_id", "pubmed_id"],
+    "output": ["entrez_gene_id"],
+    "jsonld": "context/mygene_query_context.json",
+    "api": "mygene.info",
     "type": "query"
   },
   {
-    "url_syntax": "http://c.biothings.io/v1/drug/{{input}}",
-    "input": ["inchikey", "drugbank_id"],
-    "output": ["dbsnp_id", "pubchem_id", "drugbank_id", "pubmed_id", "hgnc_gene_symbol", "uniprot_id", "clinicaltrial_id"],
-    "jsonld": "https://raw.githubusercontent.com/biothings/biothings.drugs/master/src/www/context/context.json",
-    "api": "mychem.info",
+    "url_syntax": "http://mygene.info/v3/gene/{{input}}",
+    "input": ["entrez_gene_id"],
+    "output": ["uniprot_id", "ensembl_gene_id", "hgnc_gene_symbol", "wikipathway_id", "pubmed_id"],
+    "jsonld": "context/mygene_context.json",
+    "api": "mygene.info",
     "type": "get"
   },
   {
@@ -112,21 +116,19 @@ AVAILABLE_ENDPOINTS = [
     "type": "get"
   },
   {
-    "url_syntax": "http://mygene.info/v3/query?q={{input}}&fetch_all=TRUE&fields=_id",
-    "input": ["uniprot_id", "ensembl_gene_id", "hgnc_gene_symbol", "wikipathway_id", "pubmed_id"],
-    "output": ["entrez_gene_id"],
-    "jsonld": "context/mygene_query_context.json",
-    "api": "mygene.info",
+    "url_syntax": "http://mychem.info/v1/query?q={{input}}&fetch_all=TRUE&fields=_id",
+    "input": ["dbsnp_id", "pubchem_id", "drugbank_id", "pubmed_id", "hgnc_gene_symbol", "uniprot_id", "clinicaltrial_id"],
+    "output": ["inchikey"],
+    "jsonld": "context/mychem_query_context.json",
+    "api": "mychem.info",
     "type": "query"
   },
   {
-    "url_syntax": "http://mygene.info/v3/gene/{{input}}",
-    "input": ["entrez_gene_id"],
-    "output": ["uniprot_id", "ensembl_gene_id", "hgnc_gene_symbol", "wikipathway_id", "pubmed_id"],
-    "jsonld": "context/mygene_context.json",
-    "api": "mygene.info",
+    "url_syntax": "http://mychem.info/v1/drug/{{input}}",
+    "input": ["inchikey", "drugbank_id"],
+    "output": ["dbsnp_id", "pubchem_id", "drugbank_id", "pubmed_id", "hgnc_gene_symbol", "uniprot_id", "clinicaltrial_id"],
+    "jsonld": "context/mychem_query_context.json",
+    "api": "mychem.info",
     "type": "get"
   }
 ]
-
-
