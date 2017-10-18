@@ -20,20 +20,6 @@ git clone https://github.com/biothings/JSON-LD_BioThings_API_DEMO.git myproject
 cd myproject
 ```
 
-
-## Running the tests
-
-Explain how to run the automated tests for this system
-
-### Break down into end to end tests
-
-Explain what these tests test and why
-
-```
-Give an example
-```
-
-
 ## Authors
 
 * **JIWEN XIN** 
