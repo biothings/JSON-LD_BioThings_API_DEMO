@@ -1,0 +1,16 @@
+{
+  "_id": "chr15:g.22742752A>G",
+  "_version": 1,
+  "dbnsfp": {
+    "_license": "https://goo.gl/vZCbeQ",
+    "rsid": "rs542852754"
+  },
+  "dbsnp": {
+    "_license": "https://goo.gl/Ztr5rl",
+    "rsid": "rs7182058"
+  },
+  "mutdb": {
+    "_license": "https://goo.gl/I4Ipa2",
+    "rsid": "rs7182058"
+  }
+}
