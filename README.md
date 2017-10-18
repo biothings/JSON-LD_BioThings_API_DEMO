@@ -22,7 +22,7 @@ cd myproject
 
 ## Authors
 
-* **JIWEN XIN** 
+* **Jiwen Xin** 
 * **Cyrus Afrasiabi** 
 * **Sebastien Lelong** 
 * **Julee Adesara** 
