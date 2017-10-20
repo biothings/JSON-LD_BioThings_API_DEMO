@@ -2,10 +2,6 @@ from config import *
 from jsonld_processor import load_context, fetch_doc_from_api, nquads_transform, get_uri_value_pairs,fetch_value_by_uri, flatten_doc
 import json
 
-def find_id_from_uri(uri):
-    for _id in AVAILABLE_IDS.keys():
-        if AVAILABLE_IDS[_id]["uri"] == uri:
-            return _id
 
 def uri_to_field_name(uri, api):
     context = load_context(api)
@@ -61,7 +57,6 @@ def find_value_from_output_type(_url, endpoint_id, _output_type):
 def query_ids_from_output_type(api, _type, _value):
     uri = AVAILABLE_IDS[_type]["uri"]
     query_info = compose_query_parameter_from_uri(uri, _value, api)
-    print(query_info)
     id_list = ClientRedirect().get_id_list(api, query_info, fetch_all=True)
     return id_list
 
@@ -78,14 +73,6 @@ def construct_url(endpoint_id, _input, _input_type):
         url = endpoint["url_syntax"].replace("{{input}}", _input)
         return url
     elif endpoint["type"] == "query":
-        uri = AVAILABLE_IDS[_input_type]["uri"]
-        query_para = compose_query_parameter_from_uri(uri, _input, endpoint['api'])
+        query_para = compose_query_parameter_from_uri(_input_type, _input, endpoint['api'])
         url = endpoint["url_syntax"].replace("{{input}}", query_para)
         return url
-
-
-
-
-
-
-
