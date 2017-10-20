@@ -43,7 +43,7 @@ AVAILABLE_API_ENDPOINTS = [
     "output": ["http://identifiers.org/uniprot/", "http://identifiers.org/ensembl.gene/", "http://identifiers.org/hgnc.symbol/", "http://identifiers.org/wikipathways/", "http://identifiers.org/pubmed/"],
     "jsonld": "context/mygene_context.json",
     "api": "mygene.info",
-    "type": "get"
+    "type": "annotate"
   },
   {
     "url_syntax": "http://myvariant.info/v1/query?q={{input}}&fetch_all=TRUE&fields=_id",
@@ -59,7 +59,7 @@ AVAILABLE_API_ENDPOINTS = [
     "output": ["http://identifiers.org/ncbigene/", "http://identifiers.org/hgnc.symbol/", "http://identifiers.org/ensembl.gene/", "http://identifiers.org/dbsnp/", "http://identifiers.org/pubmed/", "http://identifiers.org/uniprot/"],
     "jsonld": "context/myvariant_context.json",
     "api": "myvariant.info",
-    "type": "get"
+    "type": "annotate"
   },
   {
     "url_syntax": "http://mychem.info/v1/query?q={{input}}&fetch_all=TRUE&fields=_id",
@@ -75,6 +75,6 @@ AVAILABLE_API_ENDPOINTS = [
     "output": ["http://identifiers.org/dbsnp/", "http://identifiers.org/pubchem.compound/", "http://identifiers.org/drugbank/", "http://identifiers.org/pubmed/", "http://identifiers.org/hgnc.symbol/", "http://identifiers.org/uniprot/", "http://identifiers.org/clinicaltrials/"],
     "jsonld": "context/mychem_query_context.json",
     "api": "mychem.info",
-    "type": "get"
+    "type": "annotate"
   }
 ]
