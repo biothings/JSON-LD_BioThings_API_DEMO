@@ -33,26 +33,18 @@ def find_query_api_ids(_type):
             api_id[_source] = AVAILABLE_API_SOURCES[_source]['annotate_ids']
     return api_id
 
-def find_value_from_output_type(_url, endpoint_id, _output_type):
+def find_value_from_output_type(_endpoint, _input_value, _output_type):
     '''
     given an api, input value
     return the value related to the uri
     '''
+    _url = _endpoint['url_syntax'].replace("{{input}}", _input_value)
     json_doc = fetch_doc_from_api(_url)
-    if 'hits' in json_doc and json_doc['hits']:
-        json_doc = flatten_doc(json_doc)
-        context = json.load(open(AVAILABLE_API_ENDPOINTS[endpoint_id]["jsonld"]))
-        json_doc.update(context)
-        nquads_doc = nquads_transform(json_doc)
-        uri = AVAILABLE_IDS[_output_type]["uri"]
-        return fetch_value_by_uri(nquads_doc, uri)
-    elif 'hits' not in json_doc:
-        json_doc = flatten_doc(json_doc)
-        context = json.load(open(AVAILABLE_API_ENDPOINTS[endpoint_id]["jsonld"]))
-        json_doc.update(context)
-        nquads_doc = nquads_transform(json_doc)
-        uri = AVAILABLE_IDS[_output_type]["uri"]
-        return fetch_value_by_uri(nquads_doc, uri)
+    json_doc = flatten_doc(json_doc)
+    context = json.load(open(_endpoint['jsonld']))
+    json_doc.update(context)
+    nquads_doc = nquads_transform(json_doc)
+    return fetch_value_by_uri(nquads_doc, _output_type)
 
 def query_ids_from_output_type(api, _type, _value):
     uri = AVAILABLE_IDS[_type]["uri"]
