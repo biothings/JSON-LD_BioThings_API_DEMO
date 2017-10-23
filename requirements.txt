@@ -4,4 +4,4 @@
 
 # required
 requests==2.18.4
-PyLD=0.8.0
+PyLD==0.8.0
