@@ -1,0 +1,7 @@
+# Required python modules for running the jupyter notebook examples in this repo
+# To install all requirement, run
+#    pip install -r requirements.txt
+
+# required
+requests==2.18.4
+PyLD=0.8.0
